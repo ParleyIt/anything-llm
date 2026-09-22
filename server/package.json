@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=18.12.1"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --ignore documents --ignore vector-cache --ignore storage --ignore swagger --trace-warnings index.js",
@@ -49,7 +49,7 @@
     "chartjs-node-canvas": "^5.0.0",
     "check-disk-space": "^3.4.0",
     "cheerio": "1.0.0",
-    "chromadb": "3.0.0",
+    "chromadb": "^3.5.0",
     "cors": "^2.8.5",
     "cron-validate": "1.4.5",
     "diff": "7.0.0",
@@ -125,8 +125,7 @@
     "**/jsdom/ws": "^8.21.0",
     "**/router/path-to-regexp": "^8.4.0",
     "**/archiver-utils/glob": "^7.2.3",
-    "**/readdir-glob/minimatch": "^5.1.9",
-    "@hono/node-server": "^1.19.9"
+    "**/readdir-glob/minimatch": "^5.1.9"
   },
   "devDependencies": {
     "@eslint/js": "9",
