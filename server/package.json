@@ -125,7 +125,12 @@
     "**/jsdom/ws": "^8.21.0",
     "**/router/path-to-regexp": "^8.4.0",
     "**/archiver-utils/glob": "^7.2.3",
-    "**/readdir-glob/minimatch": "^5.1.9"
+    "**/readdir-glob/minimatch": "^5.1.9",
+    "adm-zip": "^0.6.1",
+    "**/minimatch": "^3.1.4",
+    "brace-expansion": "^1.1.18",
+    "sharp": "^0.35.4",
+    "**/@mintplex-labs/express-ws/ws": "^7.5.11"
   },
   "devDependencies": {
     "@eslint/js": "9",
