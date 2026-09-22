@@ -17,7 +17,10 @@ async function asOfficeMime({
   console.log(`-- Working ${filename} --`);
   let content = "";
   try {
-    content = await officeParser.parseOfficeAsync(fullFilePath);
+    // officeparser 7 replaced parseOfficeAsync with parseOffice, which returns
+    // a document AST rather than a string; toText() flattens it back to the
+    // plain text this function has always worked with.
+    content = (await officeParser.parseOffice(fullFilePath)).toText();
   } catch (error) {
     console.error(`Could not parse office or office-like file`, error);
   }
