@@ -139,7 +139,7 @@ class NativeEmbedder {
     try {
       // Convert ESM to CommonJS via import so we can load this library.
       const pipeline = (...args) =>
-        import("@xenova/transformers").then(({ pipeline, env }) => {
+        import("@huggingface/transformers").then(({ pipeline, env }) => {
           if (!this.modelDownloaded) {
             // if model is not downloaded, we will log where we are fetching from.
             if (hostOverride) {
@@ -153,6 +153,11 @@ class NativeEmbedder {
       return {
         pipeline: await pipeline("feature-extraction", this.model, {
           cache_dir: this.cacheDir,
+          // v2 loaded quantized weights by default. v3+ makes precision explicit
+          // via `dtype` and defaults differently, so this is pinned to the v2
+          // equivalent - without it the embeddings silently change and every
+          // vector already in the DB stops matching.
+          dtype: "q8",
           ...(!this.modelDownloaded
             ? {
                 // Show download progress if we need to download any files
