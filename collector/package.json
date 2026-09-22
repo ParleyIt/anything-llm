@@ -74,13 +74,14 @@
     "picomatch": "^2.3.2",
     "underscore": "^1.13.8",
     "ip-address": "^10.3.1",
-    "@xmldom/xmldom": "^0.8.12",
     "lodash": "^4.18.0",
     "ws": "^8.17.1",
     "**/@puppeteer/browsers/tar-fs": "^3.1.1",
     "**/mailparser/linkify-it": "^5.0.2",
     "adm-zip": "^0.6.1",
     "**/mailparser/nodemailer": "^9.1.0",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.4",
+    "mammoth/@xmldom/xmldom": "^0.8.15",
+    "officeparser/@xmldom/xmldom": "^0.9.12"
   }
 }
