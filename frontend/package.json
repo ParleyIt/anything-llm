@@ -95,7 +95,7 @@
     "rollup": "^3.29.5",
     "cross-spawn": "^7.0.5",
     "brace-expansion": "^1.1.18",
-    "**/eslint/minimatch": "^9.0.7",
-    "**/@eslint/eslintrc/minimatch": "^9.0.7"
+    "@remix-run/router": "^1.23.2",
+    "minimatch": "^9.0.7"
   }
 }
