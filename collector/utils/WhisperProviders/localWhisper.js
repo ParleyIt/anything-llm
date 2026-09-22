@@ -125,11 +125,13 @@ class LocalWhisper {
     try {
       // Convert ESM to CommonJS via import so we can load this library.
       const pipeline = (...args) =>
-        import("@xenova/transformers").then(({ pipeline }) => {
+        import("@huggingface/transformers").then(({ pipeline }) => {
           return pipeline(...args);
         });
       return await pipeline("automatic-speech-recognition", this.model, {
         cache_dir: this.cacheDir,
+        // Pinned to v2's quantized default - see NativeEmbedder.
+        dtype: "q8",
         ...(!fs.existsSync(this.modelPath)
           ? {
               // Show download progress if we need to download any files

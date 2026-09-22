@@ -95,7 +95,7 @@ class NativeEmbeddingReranker {
     NativeEmbeddingReranker.#initializationPromise = (async () => {
       try {
         const { AutoModelForSequenceClassification, AutoTokenizer, env } =
-          await import("@xenova/transformers");
+          await import("@huggingface/transformers");
         this.log(`Loading reranker suite...`);
         NativeEmbeddingReranker.#transformers = {
           AutoModelForSequenceClassification,
@@ -141,6 +141,8 @@ class NativeEmbeddingReranker {
               }
             },
             cache_dir: this.cacheDir,
+            // Pinned to v2's quantized default - see NativeEmbedder.
+            dtype: "q8",
           }
         );
       this.log(`Loaded model ${this.model}`);
