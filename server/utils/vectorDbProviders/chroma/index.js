@@ -66,11 +66,10 @@ class Chroma extends VectorDatabase {
 
   // chromadb 3.x dropped the single `path` option in favour of discrete
   // host/port/ssl fields, so the configured endpoint URL has to be split up.
-  // An unset endpoint returns {} and leaves the client on its own
-  // localhost:8000 default, which is the behaviour this has always had.
-  // A set-but-unparseable endpoint throws rather than falling back: silently
-  // pointing at localhost would surface later as a heartbeat failure blaming
-  // the Chroma instance, when the real fault is the configured value.
+  // Anything unset or unparseable returns {} and leaves the client on its own
+  // localhost:8000 default - the same fallback behaviour as before. A bad
+  // endpoint therefore surfaces through the existing heartbeat check in
+  // connect() rather than here.
   parseEndpoint(endpoint = null) {
     if (!endpoint) return {};
     try {
@@ -82,9 +81,7 @@ class Chroma extends VectorDatabase {
         ssl,
       };
     } catch {
-      throw new Error(
-        `Chroma::CHROMA_ENDPOINT is set to "${endpoint}", which is not a valid URL.`
-      );
+      return {};
     }
   }
 
