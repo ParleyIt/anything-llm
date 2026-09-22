@@ -451,7 +451,7 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@hono/node-server@^1.19.9", "@hono/node-server@^1.19.9 || ^2.0.5":
+"@hono/node-server@^1.19.9 || ^2.0.5":
   version "1.19.17"
   resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.19.17.tgz#99bd8625cdbae82652a135c71363cd6322fae483"
   integrity sha512-dSneS5qhiauZWGDCeK4o695Xd9nUNjviSZCMQrj10eetr8Uln1ucn6bbphOM6UynAMMtNIzZNSpL9vnASJwrPQ==
@@ -2163,43 +2163,43 @@ chownr@^1.1.1:
   resolved "https://registry.npmjs.org/chownr/-/chownr-1.1.4.tgz"
   integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
 
-chromadb-js-bindings-darwin-arm64@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-darwin-arm64/-/chromadb-js-bindings-darwin-arm64-0.1.3.tgz#9d2a9ffaa3d241e97e2ee783b0bf30576d6397d7"
-  integrity sha512-TZq90O3QuVSfMZcYXWP8juP9q7O7ebSz7PsewW2deVJd3aihOnVxpZtxfwlFKYEDiWz5XwArL6xLBbKNYZGnLA==
+chromadb-js-bindings-darwin-arm64@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-darwin-arm64/-/chromadb-js-bindings-darwin-arm64-1.3.4.tgz#738123e859426d3a139fa7fc7d5373c3f9c76cd4"
+  integrity sha512-pDdWCcR0hCz3pSDiIijBito7YG6FumewfzYE2mIjSwjrO1CKSfQKLwDdTVK4ZNpVGQa16ePoMX+pg7ShSUARJg==
 
-chromadb-js-bindings-darwin-x64@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-darwin-x64/-/chromadb-js-bindings-darwin-x64-0.1.3.tgz#18ebb5cf1d106643acb611d4060d7cca8100c873"
-  integrity sha512-ynIKTgcJ89YAhuGjp5E39E/gsjJ4IgRpGzVrsYSYfx4K449LaIx0yUdFsxx/QoY0Q5/AJDgUH6dG5DXgYg5LxA==
+chromadb-js-bindings-darwin-x64@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-darwin-x64/-/chromadb-js-bindings-darwin-x64-1.3.4.tgz#1285928044aca64cd9ebf675e5f0e2e5a8edd682"
+  integrity sha512-5vKVFXSFo+S9qC9by/7oofjcXqQK4IGHiUnPrvTfc7B52gNlPSKeyDO1wha556COc3KtXSZjICEH0nYBJ8UXng==
 
-chromadb-js-bindings-linux-arm64-gnu@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-linux-arm64-gnu/-/chromadb-js-bindings-linux-arm64-gnu-0.1.3.tgz#3fa5bf5edcd77d8d4d357a525c7f65023c44a8fa"
-  integrity sha512-RLReKrGYygGbKWgh3Y9nGevl2/8/QXr6QHB8f03CbfogKwk7NGPjblO6O1P4gQMxU+b9kRldDWBOZbsvIlJt9g==
+chromadb-js-bindings-linux-arm64-gnu@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-linux-arm64-gnu/-/chromadb-js-bindings-linux-arm64-gnu-1.3.4.tgz#15a0db89fbbecbde6dc3d60b8079d6a4b715292b"
+  integrity sha512-ELiqDZzU5mZd1BvZugGrhoMkVeNyQaa+PGizd06WIpIJVoHY+S+9ZBjdeM6ZkRnL3vTxD79XBrosxNWhzqy/kg==
 
-chromadb-js-bindings-linux-x64-gnu@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-linux-x64-gnu/-/chromadb-js-bindings-linux-x64-gnu-0.1.3.tgz#c70efcf6227db46e692c80f277daaa45955d43ff"
-  integrity sha512-YMY4A0tYbmsiyV7ASS+aL7cp+QdoFpC6Q4AjBgpA9+Lh131eli0xIqrnwe3/YF5SkcAKK/1GcNXqSzx8P3eVLQ==
+chromadb-js-bindings-linux-x64-gnu@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-linux-x64-gnu/-/chromadb-js-bindings-linux-x64-gnu-1.3.4.tgz#1c4cf53d01d2a71a2cab40872e79ab4f653d004f"
+  integrity sha512-HmTUe7PEIaBngCQ70Yyle81z2wYyg9OMgJYyRUNBYCBp4ED6zTmdaOro41Vs/c/h2UyQeBXFIKNmHDeD2Nr2fw==
 
-chromadb-js-bindings-win32-x64-msvc@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-win32-x64-msvc/-/chromadb-js-bindings-win32-x64-msvc-0.1.3.tgz#3021db256412c868512e3f0650ac00a0f0cb6b88"
-  integrity sha512-smVxJRVhUPPTW2G8mu4GizCvrcii3F1ZPp8CbNMvgWJhYi98CWN9KV3df3b12xRt76tIWIF/Lp5TgZfPnk4pmQ==
+chromadb-js-bindings-win32-x64-msvc@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/chromadb-js-bindings-win32-x64-msvc/-/chromadb-js-bindings-win32-x64-msvc-1.3.4.tgz#6bd510a4e2a875cf2da14e251a2c138d086e3442"
+  integrity sha512-punrofQRzKspNMxHmv24qoPeRycV2T3KfedekGV4lOuPPG14i6qggS4x/OWLSAK7ozPfBbrzCejvCa5wfvujhQ==
 
-chromadb@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/chromadb/-/chromadb-3.0.0.tgz#96da188a0237de40f8dbfa584b61db47dbd981a8"
-  integrity sha512-saQj/bCGJ4u9qg4XJOdU/mPbGrzlh5kaBM2x2ZJhlVz+dgUIwZaC3bm7J6RitXA+4E4eKlpYEdXZd9b/yk/oUg==
+chromadb@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/chromadb/-/chromadb-3.5.0.tgz#0239574497df37f10c9d5a426c2576a3fa61c050"
+  integrity sha512-A68f2RQjY3R95Pzy0j3ykOu6fi+WWCN1tjbvzrZXZoYQ1d7ZjgWr1FyzitZCeaz/0qmc8y2LEK7QmlxloOAs9Q==
   dependencies:
     semver "^7.7.1"
   optionalDependencies:
-    chromadb-js-bindings-darwin-arm64 "^0.1.1"
-    chromadb-js-bindings-darwin-x64 "^0.1.1"
-    chromadb-js-bindings-linux-arm64-gnu "^0.1.1"
-    chromadb-js-bindings-linux-x64-gnu "^0.1.1"
-    chromadb-js-bindings-win32-x64-msvc "^0.1.1"
+    chromadb-js-bindings-darwin-arm64 "^1.3.4"
+    chromadb-js-bindings-darwin-x64 "^1.3.4"
+    chromadb-js-bindings-linux-arm64-gnu "^1.3.4"
+    chromadb-js-bindings-linux-x64-gnu "^1.3.4"
+    chromadb-js-bindings-win32-x64-msvc "^1.3.4"
 
 cli-spinners@^2.9.2:
   version "2.9.2"
