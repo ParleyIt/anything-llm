@@ -64,20 +64,39 @@ class Chroma extends VectorDatabase {
     return normalized;
   }
 
+  // chromadb 3.x dropped the single `path` option in favour of discrete
+  // host/port/ssl fields, so the configured endpoint URL has to be split up.
+  // Anything unset or unparseable returns {} and leaves the client on its own
+  // localhost:8000 default - the same fallback behaviour as before. A bad
+  // endpoint therefore surfaces through the existing heartbeat check in
+  // connect() rather than here.
+  parseEndpoint(endpoint = null) {
+    if (!endpoint) return {};
+    try {
+      const url = new URL(endpoint);
+      const ssl = url.protocol === "https:";
+      return {
+        host: url.hostname,
+        port: url.port ? Number(url.port) : ssl ? 443 : 80,
+        ssl,
+      };
+    } catch {
+      return {};
+    }
+  }
+
   async connect() {
     if (process.env.VECTOR_DB !== "chroma")
       throw new Error("Chroma::Invalid ENV settings");
 
     const client = new ChromaClient({
-      path: process.env.CHROMA_ENDPOINT, // if not set will fallback to localhost:8000
+      ...this.parseEndpoint(process.env.CHROMA_ENDPOINT),
       ...(!!process.env.CHROMA_API_HEADER && !!process.env.CHROMA_API_KEY
         ? {
-            fetchOptions: {
-              headers: parseAuthHeader(
-                process.env.CHROMA_API_HEADER || "X-Api-Key",
-                process.env.CHROMA_API_KEY
-              ),
-            },
+            headers: parseAuthHeader(
+              process.env.CHROMA_API_HEADER || "X-Api-Key",
+              process.env.CHROMA_API_KEY
+            ),
           }
         : {}),
     });

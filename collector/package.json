@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=18.12.1"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --ignore hotdir --ignore storage --trace-warnings index.js",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@langchain/community": "^0.2.23",
-    "@xenova/transformers": "^2.14.0",
+    "@huggingface/transformers": "~4.2.0",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -34,11 +34,11 @@
     "moment": "^2.29.4",
     "node-html-parser": "^6.1.13",
     "node-xlsx": "^0.24.0",
-    "officeparser": "5.1.1",
+    "officeparser": "^7.8.0",
     "openai": "4.95.1",
     "pdf-parse": "^1.1.1",
     "puppeteer": "~21.5.2",
-    "sharp": "^0.33.5",
+    "sharp": "^0.35.4",
     "slugify": "^1.6.6",
     "strip-ansi": "^7.1.2",
     "tesseract.js": "^6.0.0",
@@ -65,11 +65,11 @@
     "string-width": "^4.2.3",
     "wrap-ansi": "^7.0.0",
     "basic-ftp": "^5.2.0",
-    "brace-expansion": "^1.1.16",
+    "brace-expansion": "^1.1.18",
     "flatted": "^3.4.0",
     "form-data": "^4.0.6",
     "js-yaml": "^4.3.0",
-    "minimatch": "^3.1.3",
+    "minimatch": "^3.1.4",
     "path-to-regexp": "^0.1.13",
     "picomatch": "^2.3.2",
     "underscore": "^1.13.8",
@@ -80,6 +80,7 @@
     "**/@puppeteer/browsers/tar-fs": "^3.1.1",
     "**/mailparser/linkify-it": "^5.0.2",
     "adm-zip": "^0.6.1",
-    "**/mailparser/nodemailer": "^9.1.0"
+    "**/mailparser/nodemailer": "^9.1.0",
+    "sharp": "^0.35.4"
   }
 }
