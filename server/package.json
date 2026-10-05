@@ -63,6 +63,7 @@
     "fast-levenshtein": "^3.0.0",
     "fix-path": "^4.0.0",
     "graphql": "^16.7.1",
+    "image-size": "^2.0.4",
     "ip": "^2.0.1",
     "joi": "^17.11.0",
     "joi-password-complexity": "^5.2.0",
@@ -130,7 +131,8 @@
     "**/minimatch": "^3.1.4",
     "brace-expansion": "^1.1.18",
     "sharp": "^0.35.4",
-    "**/@mintplex-labs/express-ws/ws": "^7.5.11"
+    "**/@mintplex-labs/express-ws/ws": "^7.5.11",
+    "**/pptxgenjs/image-size": "^2.0.4"
   },
   "devDependencies": {
     "@eslint/js": "9",
