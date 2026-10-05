@@ -1,6 +1,6 @@
 const prisma = require("../utils/prisma");
 const { v4: uuidv4 } = require("uuid");
-const ip = require("ip");
+const os = require("os");
 
 /**
  * @typedef {Object} TemporaryMobileDeviceRequest
@@ -17,6 +17,22 @@ const ip = require("ip");
  * @type {Map<string, TemporaryMobileDeviceRequest>}
  */
 const TemporaryMobileDeviceRequests = new Map();
+
+/**
+ * The first non-loopback IPv4 address of this machine, or 127.0.0.1 if there
+ * is none. Matches what ip.address() from the `ip` package returned.
+ * @returns {string}
+ */
+function localIPv4Address() {
+  for (const addresses of Object.values(os.networkInterfaces())) {
+    const match = addresses?.find(
+      (details) =>
+        details.family === "IPv4" && !details.address.startsWith("127.")
+    );
+    if (match) return match.address;
+  }
+  return "127.0.0.1";
+}
 
 const MobileDevice = {
   platform: "server",
@@ -100,7 +116,7 @@ const MobileDevice = {
     let baseUrl = "/api/mobile";
     if (process.env.NODE_ENV === "production") baseUrl = "/api/mobile";
     else
-      baseUrl = `http://${ip.address()}:${process.env.SERVER_PORT || 3001}/api/mobile`;
+      baseUrl = `http://${localIPv4Address()}:${process.env.SERVER_PORT || 3001}/api/mobile`;
 
     const tempToken = this.registerTempToken(user);
     baseUrl = `${baseUrl}?t=${tempToken}`;
