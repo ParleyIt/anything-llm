@@ -95,7 +95,7 @@
     "swagger-ui-express": "^5.0.0",
     "truncate": "^3.0.0",
     "url-pattern": "^1.0.3",
-    "uuid": "^9.0.0",
+    "uuid": "^11.1.1",
     "uuid-apikey": "^1.5.3",
     "weaviate-ts-client": "^1.4.0",
     "web-push": "^3.6.7",
@@ -132,7 +132,8 @@
     "brace-expansion": "^1.1.18",
     "sharp": "^0.35.4",
     "**/@mintplex-labs/express-ws/ws": "^7.5.11",
-    "**/pptxgenjs/image-size": "^2.0.4"
+    "**/pptxgenjs/image-size": "^2.0.4",
+    "uuid": "^11.1.1"
   },
   "devDependencies": {
     "@eslint/js": "9",
