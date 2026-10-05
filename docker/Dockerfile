@@ -1,5 +1,5 @@
 # Setup base image
-FROM ubuntu:noble-20251013 AS base
+FROM ubuntu:noble-20260917 AS base
 
 # Build arguments
 ARG ARG_UID=1000
