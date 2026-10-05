@@ -26,6 +26,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get update && \
     # Install node and yarn
     apt-get install -yq --no-install-recommends nodejs && \
+    # Replace the npm that ships with nodejs; its bundled tar, pacote and sigstore
+    # have advisories. npm stays because the entrypoint runs prisma through npx.
+    npm install -g npm@11.21.0 && npm cache clean --force && \
     curl -LO https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn_1.22.19_all.deb \
         && dpkg -i yarn_1.22.19_all.deb \
         && rm yarn_1.22.19_all.deb && \
@@ -83,6 +86,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get update && \
     # Install node and yarn
     apt-get install -yq --no-install-recommends nodejs && \
+    # Replace the npm that ships with nodejs; its bundled tar, pacote and sigstore
+    # have advisories. npm stays because the entrypoint runs prisma through npx.
+    npm install -g npm@11.21.0 && npm cache clean --force && \
     curl -LO https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn_1.22.19_all.deb \
         && dpkg -i yarn_1.22.19_all.deb \
         && rm yarn_1.22.19_all.deb && \
