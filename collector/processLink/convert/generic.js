@@ -147,8 +147,8 @@ async function getPageContent({ link, captureAs = "text", headers = {} }) {
     let pageContents = [];
     const runtimeSettings = new RuntimeSettings();
 
-    /** @type {import('puppeteer').PuppeteerLaunchOptions} */
-    let launchConfig = { headless: "new" };
+    /** @type {import('puppeteer').LaunchOptions} */
+    let launchConfig = { headless: true };
 
     /* On MacOS 15.1, the headless=new option causes the browser to crash immediately.
      * It is not clear why this is the case, but it is reproducible. Since AnythinglLM
@@ -164,13 +164,13 @@ async function getPageContent({ link, captureAs = "text", headers = {} }) {
       console.log(
         "Darwin Development Mode: Disabling headless mode to prevent Chromium from crashing."
       );
-      launchConfig.headless = "false";
+      launchConfig.headless = false;
     }
 
     const loader = new PuppeteerWebBaseLoader(link, {
       launchOptions: {
         headless: launchConfig.headless,
-        ignoreHTTPSErrors: true,
+        acceptInsecureCerts: true,
         args: runtimeSettings.get("browserLaunchArgs"),
       },
       gotoOptions: {
@@ -192,7 +192,7 @@ async function getPageContent({ link, captureAs = "text", headers = {} }) {
       loader.scrape = async function () {
         const { launch } = await PuppeteerWebBaseLoader.imports();
         const browser = await launch({
-          headless: "new",
+          headless: true,
           defaultViewport: null,
           ignoreDefaultArgs: ["--disable-extensions"],
           ...this.options?.launchOptions,

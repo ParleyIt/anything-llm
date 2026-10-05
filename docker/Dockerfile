@@ -57,18 +57,6 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh && \
 USER anythingllm
 WORKDIR /app
 
-# Puppeteer does not ship with an ARM86 compatible build for Chromium
-# so web-scraping would be broken in arm docker containers unless we patch it
-# by manually installing a compatible chromedriver.
-RUN echo "Need to patch Puppeteer x Chromium support for ARM86 - installing dep!" && \
-    curl -fSL https://webassets.anythingllm.com/chromium-1088-linux-arm64.zip -o chrome-linux.zip && \
-    unzip chrome-linux.zip && \
-    rm -rf chrome-linux.zip
-
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV CHROME_PATH=/app/chrome-linux/chrome
-ENV PUPPETEER_EXECUTABLE_PATH=/app/chrome-linux/chrome
-
 RUN echo "Done running arm64 specific installation steps"
 
 #############################################
@@ -83,7 +71,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3008,DL3013
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
-        curl gnupg libgfortran5 libgbm1 tzdata netcat-openbsd \
+        unzip curl gnupg libgfortran5 libgbm1 tzdata netcat-openbsd \
         libasound2t64 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 \
         libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libx11-6 libx11-xcb1 libxcb1 \
         libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
@@ -157,7 +145,10 @@ WORKDIR /app
 # Install collector dependencies
 COPY --chown=anythingllm:anythingllm ./collector/ ./collector/
 WORKDIR /app/collector
-ENV PUPPETEER_DOWNLOAD_BASE_URL=https://storage.googleapis.com/chrome-for-testing-public
+# Puppeteer downloads Chrome for Testing for both amd64 and arm64 into
+# /app/.cache/puppeteer. Scraping launches full Chrome in headless mode, so
+# skip the separate chrome-headless-shell download.
+ENV PUPPETEER_CHROME_HEADLESS_SHELL_SKIP_DOWNLOAD=true
 RUN yarn install --production --network-timeout 100000 && yarn cache clean
 
 WORKDIR /app

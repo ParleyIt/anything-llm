@@ -52,8 +52,8 @@ async function discoverLinks(startUrl, maxDepth = 1, maxLinks = 20) {
 async function getPageLinks(url, baseUrl) {
   try {
     const runtimeSettings = new RuntimeSettings();
-    /** @type {import('puppeteer').PuppeteerLaunchOptions} */
-    let launchConfig = { headless: "new" };
+    /** @type {import('puppeteer').LaunchOptions} */
+    let launchConfig = { headless: true };
 
     /* On MacOS 15.1, the headless=new option causes the browser to crash immediately.
      * It is not clear why this is the case, but it is reproducible. Since AnythinglLM
@@ -69,13 +69,13 @@ async function getPageLinks(url, baseUrl) {
       console.log(
         "Darwin Development Mode: Disabling headless mode to prevent Chromium from crashing."
       );
-      launchConfig.headless = "false";
+      launchConfig.headless = false;
     }
 
     const loader = new PuppeteerWebBaseLoader(url, {
       launchOptions: {
         headless: launchConfig.headless,
-        ignoreHTTPSErrors: true,
+        acceptInsecureCerts: true,
         args: runtimeSettings.get("browserLaunchArgs"),
       },
       gotoOptions: { waitUntil: "networkidle2" },
@@ -132,8 +132,8 @@ function extractLinks(html, baseUrl, pageUrl = baseUrl) {
 
 async function bulkScrapePages(links, outFolderPath) {
   const runtimeSettings = new RuntimeSettings();
-  /** @type {import('puppeteer').PuppeteerLaunchOptions} */
-  let launchConfig = { headless: "new" };
+  /** @type {import('puppeteer').LaunchOptions} */
+  let launchConfig = { headless: true };
 
   /* On MacOS 15.1, the headless=new option causes the browser to crash immediately.
    * It is not clear why this is the case, but it is reproducible. Since AnythinglLM
@@ -146,7 +146,7 @@ async function bulkScrapePages(links, outFolderPath) {
     console.log(
       "Darwin Development Mode: Disabling headless mode to prevent Chromium from crashing."
     );
-    launchConfig.headless = "false";
+    launchConfig.headless = false;
   }
 
   const scrapedData = [];
@@ -159,7 +159,7 @@ async function bulkScrapePages(links, outFolderPath) {
       const loader = new PuppeteerWebBaseLoader(link, {
         launchOptions: {
           headless: launchConfig.headless,
-          ignoreHTTPSErrors: true,
+          acceptInsecureCerts: true,
           args: runtimeSettings.get("browserLaunchArgs"),
         },
         gotoOptions: { waitUntil: "networkidle2" },
