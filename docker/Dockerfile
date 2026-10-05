@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libx11-6 libx11-xcb1 libxcb1 \
         libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
         libxss1 libxtst6 ca-certificates fonts-liberation libappindicator3-1 libnss3 lsb-release \
-        xdg-utils git build-essential ffmpeg \
+        xdg-utils git ffmpeg \
         # Vulkan loader + Mesa drivers so the embedded Lemonade engine (ENABLE_BUILT_IN_LLM) can use AMD/Intel GPUs
         libvulkan1 mesa-vulkan-drivers && \
     mkdir -p /etc/apt/keyrings && \
@@ -81,7 +81,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libx11-6 libx11-xcb1 libxcb1 \
         libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
         libxss1 libxtst6 ca-certificates fonts-liberation libappindicator3-1 libnss3 lsb-release \
-        xdg-utils git build-essential ffmpeg \
+        xdg-utils git ffmpeg \
         # Vulkan loader + Mesa drivers so the embedded Lemonade engine (ENABLE_BUILT_IN_LLM) can use AMD/Intel GPUs
         libvulkan1 mesa-vulkan-drivers && \
     mkdir -p /etc/apt/keyrings && \
