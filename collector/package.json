@@ -81,6 +81,7 @@
     "mammoth/@xmldom/xmldom": "^0.8.15",
     "officeparser/@xmldom/xmldom": "^0.9.12",
     "uuid": "^11.1.1",
-    "**/youtubei.js/undici": "^6.27.0"
+    "**/youtubei.js/undici": "^6.27.0",
+    "officeparser/pdfjs-dist": "6.2.108"
   }
 }
