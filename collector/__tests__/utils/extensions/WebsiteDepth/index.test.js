@@ -3,7 +3,7 @@ process.env.STORAGE_DIR = "test-storage"; // needed for tests to run
 
 // Puppeteer is stubbed so the crawl can be driven by an in-memory site map -
 // no browser and no network access are required.
-jest.mock("langchain/document_loaders/web/puppeteer", () => ({
+jest.mock("@langchain/community/document_loaders/web/puppeteer", () => ({
   PuppeteerWebBaseLoader: jest.fn(),
 }));
 
@@ -27,7 +27,7 @@ const os = require("os");
 const path = require("path");
 const {
   PuppeteerWebBaseLoader,
-} = require("langchain/document_loaders/web/puppeteer");
+} = require("@langchain/community/document_loaders/web/puppeteer");
 const { writeToServerDocuments } = require("../../../../utils/files");
 const websiteScraper = require("../../../../utils/extensions/WebsiteDepth");
 const { extractLinks } = websiteScraper;

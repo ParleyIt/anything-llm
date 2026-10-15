@@ -1,7 +1,7 @@
 /* eslint-env jest, node */
 process.env.STORAGE_DIR = "test-storage"; // needed for tests to run
 
-jest.mock("langchain/document_loaders/web/puppeteer", () => ({
+jest.mock("@langchain/community/document_loaders/web/puppeteer", () => ({
   PuppeteerWebBaseLoader: jest.fn(),
 }));
 jest.mock("../../../utils/files", () => ({
@@ -18,7 +18,7 @@ jest.mock("../../../utils/extensions/YoutubeTranscript", () => ({
 
 const {
   PuppeteerWebBaseLoader,
-} = require("langchain/document_loaders/web/puppeteer");
+} = require("@langchain/community/document_loaders/web/puppeteer");
 const { writeToServerDocuments } = require("../../../utils/files");
 const { processAsFile } = require("../../../processLink/helpers");
 const {

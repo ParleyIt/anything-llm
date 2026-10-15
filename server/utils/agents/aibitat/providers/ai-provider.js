@@ -13,7 +13,7 @@
 const { v4 } = require("uuid");
 const { ChatOpenAI } = require("@langchain/openai");
 const { ChatAnthropic } = require("@langchain/anthropic");
-const { ChatOllama } = require("@langchain/community/chat_models/ollama");
+const { ChatOllama } = require("@langchain/ollama");
 const { toValidNumber, safeJsonParse } = require("../../../http");
 const { getLLMProviderClass } = require("../../../helpers");
 const { MODEL_PRICING } = require("../../../helpers/modelPricing");
