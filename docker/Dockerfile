@@ -30,7 +30,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -yq --no-install-recommends nodejs && \
     # Replace the npm that ships with nodejs; its bundled tar, pacote and sigstore
     # have advisories. npm stays because the entrypoint runs prisma through npx.
-    npm install -g npm@11.21.0 && npm cache clean --force && \
+    npm install -g npm@11.21.0 && \
+    # npm 11.21.0 still bundles brace-expansion 5.0.9 and undici 6.28.0. Swap in
+    # the patched releases until an npm release ships them.
+    NPM_MODULES="$(npm root -g)/npm/node_modules" && \
+    for pkg in brace-expansion@5.0.11 undici@6.28.1; do \
+        tgz="$(npm pack "$pkg" --silent)" && \
+        rm -rf "${NPM_MODULES:?}/${pkg%@*}" && mkdir -p "$NPM_MODULES/${pkg%@*}" && \
+        tar -xzf "$tgz" --no-same-owner --strip-components=1 -C "$NPM_MODULES/${pkg%@*}" && \
+        rm "$tgz" || exit 1; \
+    done && \
+    npm cache clean --force && \
     curl -LO https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn_1.22.19_all.deb \
         && dpkg -i yarn_1.22.19_all.deb \
         && rm yarn_1.22.19_all.deb && \
@@ -92,7 +102,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -yq --no-install-recommends nodejs && \
     # Replace the npm that ships with nodejs; its bundled tar, pacote and sigstore
     # have advisories. npm stays because the entrypoint runs prisma through npx.
-    npm install -g npm@11.21.0 && npm cache clean --force && \
+    npm install -g npm@11.21.0 && \
+    # npm 11.21.0 still bundles brace-expansion 5.0.9 and undici 6.28.0. Swap in
+    # the patched releases until an npm release ships them.
+    NPM_MODULES="$(npm root -g)/npm/node_modules" && \
+    for pkg in brace-expansion@5.0.11 undici@6.28.1; do \
+        tgz="$(npm pack "$pkg" --silent)" && \
+        rm -rf "${NPM_MODULES:?}/${pkg%@*}" && mkdir -p "$NPM_MODULES/${pkg%@*}" && \
+        tar -xzf "$tgz" --no-same-owner --strip-components=1 -C "$NPM_MODULES/${pkg%@*}" && \
+        rm "$tgz" || exit 1; \
+    done && \
+    npm cache clean --force && \
     curl -LO https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn_1.22.19_all.deb \
         && dpkg -i yarn_1.22.19_all.deb \
         && rm yarn_1.22.19_all.deb && \
