@@ -1,5 +1,5 @@
 # Setup base image
-FROM ubuntu:noble-20260917 AS base
+FROM ubuntu:noble-20260930.1 AS base
 
 # Build arguments
 ARG ARG_UID=1000
@@ -30,11 +30,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -yq --no-install-recommends nodejs && \
     # Replace the npm that ships with nodejs; its bundled tar, pacote and sigstore
     # have advisories. npm stays because the entrypoint runs prisma through npx.
-    npm install -g npm@11.21.0 && \
-    # npm 11.21.0 still bundles brace-expansion 5.0.9 and undici 6.28.0. Swap in
-    # the patched releases until an npm release ships them.
+    npm install -g npm@11.21.1 && \
+    # npm 11.21.1 still bundles undici 6.29.0. Swap in the patched release until
+    # an npm release ships it.
     NPM_MODULES="$(npm root -g)/npm/node_modules" && \
-    for pkg in brace-expansion@5.0.11 undici@6.28.1; do \
+    for pkg in undici@6.29.1; do \
         tgz="$(npm pack "$pkg" --silent)" && \
         rm -rf "${NPM_MODULES:?}/${pkg%@*}" && mkdir -p "$NPM_MODULES/${pkg%@*}" && \
         tar -xzf "$tgz" --no-same-owner --strip-components=1 -C "$NPM_MODULES/${pkg%@*}" && \
@@ -102,11 +102,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -yq --no-install-recommends nodejs && \
     # Replace the npm that ships with nodejs; its bundled tar, pacote and sigstore
     # have advisories. npm stays because the entrypoint runs prisma through npx.
-    npm install -g npm@11.21.0 && \
-    # npm 11.21.0 still bundles brace-expansion 5.0.9 and undici 6.28.0. Swap in
-    # the patched releases until an npm release ships them.
+    npm install -g npm@11.21.1 && \
+    # npm 11.21.1 still bundles undici 6.29.0. Swap in the patched release until
+    # an npm release ships it.
     NPM_MODULES="$(npm root -g)/npm/node_modules" && \
-    for pkg in brace-expansion@5.0.11 undici@6.28.1; do \
+    for pkg in undici@6.29.1; do \
         tgz="$(npm pack "$pkg" --silent)" && \
         rm -rf "${NPM_MODULES:?}/${pkg%@*}" && mkdir -p "$NPM_MODULES/${pkg%@*}" && \
         tar -xzf "$tgz" --no-same-owner --strip-components=1 -C "$NPM_MODULES/${pkg%@*}" && \

@@ -34,10 +34,10 @@
     "moment": "^2.29.4",
     "node-html-parser": "^6.1.13",
     "node-xlsx": "^0.24.0",
-    "officeparser": "^7.8.0",
+    "officeparser": "^8.2.0",
     "openai": "4.95.1",
     "pdf-parse": "^1.1.1",
-    "puppeteer": "~25.12.0",
+    "puppeteer": "~25.16.0",
     "sharp": "^0.35.5",
     "slugify": "^1.6.6",
     "strip-ansi": "^7.1.2",
@@ -77,10 +77,8 @@
     "adm-zip": "^0.6.1",
     "sharp": "^0.35.5",
     "mammoth/@xmldom/xmldom": "^0.8.15",
-    "officeparser/@xmldom/xmldom": "^0.9.12",
     "uuid": "^11.1.1",
-    "**/youtubei.js/undici": "^6.27.0",
-    "officeparser/pdfjs-dist": "6.2.108",
-    "qs": "~6.14.2"
+    "**/youtubei.js/undici": "^6.29.1",
+    "qs": "~6.16.1"
   }
 }
