@@ -37,7 +37,7 @@
     "officeparser": "^7.8.0",
     "openai": "4.95.1",
     "pdf-parse": "^1.1.1",
-    "puppeteer": "~25.12.0",
+    "puppeteer": "~25.16.0",
     "sharp": "^0.35.5",
     "slugify": "^1.6.6",
     "strip-ansi": "^7.1.2",
