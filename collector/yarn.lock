@@ -532,13 +532,14 @@
   resolved "https://registry.yarnpkg.com/@standard-schema/spec/-/spec-1.1.0.tgz#a79b55dbaf8604812f52d140b2c9ab41bc150bb8"
   integrity sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==
 
-"@tokenizer/inflate@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@tokenizer/inflate/-/inflate-0.4.1.tgz#fa6cdb8366151b3cc8426bf9755c1ea03a2fba08"
-  integrity sha512-2mAv+8pkG6GIZiF1kNg1jAjh27IDxEPKwdGul3snfztFerfPGI1LjDezZp3i7BElXompqEtPmoPx6c2wgtWsOA==
+"@tokenizer/inflate@^0.5.1":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@tokenizer/inflate/-/inflate-0.5.2.tgz#47672bb1f891e87bde926ebe42145b68c7f0dcb9"
+  integrity sha512-3AZIuReWQ7i916s/UWAzy4V4k2wrkAZLW2sTi448W3w7Hz5uoc+Y7h+cnwzr0cwrwf3PsC5xKsH8MOl0NRltlg==
   dependencies:
     debug "^4.4.3"
-    token-types "^6.1.1"
+    strtok3 "^10.6.2"
+    token-types "^6.1.2"
 
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
@@ -595,7 +596,7 @@
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.15.tgz#71ebf80729e4e95221d519ac9b1e1eaea7784907"
   integrity sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==
 
-"@xmldom/xmldom@^0.9.10", "@xmldom/xmldom@^0.9.12":
+"@xmldom/xmldom@^0.9.12":
   version "0.9.12"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.9.12.tgz#1f84c07cb95ccf28202299f77b5fd7fc257151e8"
   integrity sha512-5AXjrcMClTryPe9LgZrygpB1lj7s0S9E0+W+AHaVKAVyHanafK86iPSvG5xHVSp/jC+VH1UXu0TAEmY279xH7A==
@@ -1453,15 +1454,15 @@ file-entry-cache@^8.0.0:
   dependencies:
     flat-cache "^4.0.0"
 
-file-type@^22.0.1:
-  version "22.1.1"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-22.1.1.tgz#5d9b20bd514657440379e57ff64ba06d3822c2a3"
-  integrity sha512-sEB0oStmeLGtpmSAD88RDNuLsvhv4iC3u0lE25CUvfCULvj49xoQ3l3K525Vn+ZzsZ6DOLajQCV6RmhwwhqiJg==
+file-type@^22.1.0:
+  version "22.2.0"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-22.2.0.tgz#f4e7119f03c9807e7bb840cfd61ce1131962060b"
+  integrity sha512-XmEVJsRpQMVYC+sWFW+FKAVo2P7/lPctDdWH4UQ1r6oxhdrTobnowdM3z+ZJ93a4J8D3yDpxX0bEvRuFev0vUQ==
   dependencies:
-    "@tokenizer/inflate" "^0.4.1"
-    strtok3 "^10.3.5"
+    "@tokenizer/inflate" "^0.5.1"
+    strtok3 "^10.5.0"
     token-types "^6.1.2"
-    uint8array-extras "^1.5.0"
+    uint8array-extras "^1.6.0"
 
 fill-range@^7.1.1:
   version "7.1.1"
@@ -2341,15 +2342,15 @@ object-keys@^1.1.1:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-officeparser@^7.8.0:
-  version "7.8.0"
-  resolved "https://registry.yarnpkg.com/officeparser/-/officeparser-7.8.0.tgz#7f21fc0126cf58447176bd3d71c095150cff7dee"
-  integrity sha512-z3stbbcwTA4HsGuUz2XJEBbl6WV1X2qCvuiokc2D0593wnu8H7kaD9UY5YAHc8uMjMhH07FxXikzP0BFLSna4A==
+officeparser@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/officeparser/-/officeparser-8.2.0.tgz#f99ea875d2c7dcd4ba0724663f4efef4c3090e69"
+  integrity sha512-9NNNRbtuMQmxXySS3SzXty1Z+sGd8L0rQJLn0Rl+UUv60uW5G/tajK5oIhJchrLiyGvOfpIe9CbDP+xeiV5RZw==
   dependencies:
-    "@xmldom/xmldom" "^0.9.10"
+    "@xmldom/xmldom" "^0.9.12"
     fflate "^0.8.3"
-    file-type "^22.0.1"
-    pdfjs-dist "6.1.200"
+    file-type "^22.1.0"
+    pdfjs-dist "6.2.108"
     tesseract.js "^7.0.0"
 
 on-finished@2.4.1, on-finished@~2.4.1:
@@ -2543,7 +2544,7 @@ pdf-parse@^1.1.1:
   dependencies:
     node-ensure "^0.0.0"
 
-pdfjs-dist@6.1.200, pdfjs-dist@6.2.108:
+pdfjs-dist@6.2.108:
   version "6.2.108"
   resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-6.2.108.tgz#1e0ce0f4b3a034f953dbbe2334ab01fbddf0eb30"
   integrity sha512-YxFb+SQcodN2rnX9Tn3dHYlqfb7NjlzzfONPpJd+AKoKtUjEdevTfbC07d5TcczzOK6261auRkP/M8OBHs9vFQ==
@@ -3058,10 +3059,10 @@ strip-json-comments@^3.1.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
 
-strtok3@^10.3.5:
-  version "10.3.5"
-  resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-10.3.5.tgz#7213285da0dc3dec0fc8ce5df4b8b7a733f14360"
-  integrity sha512-ki4hZQfh5rX0QDLLkOCj+h+CVNkqmp/CMf8v8kZpkNVK6jGQooMytqzLZYUVYIZcFZ6yDB70EfD8POcFXiF5oA==
+strtok3@^10.5.0, strtok3@^10.6.2:
+  version "10.6.2"
+  resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-10.6.2.tgz#7fac1be17e83295b863399f01a843e962f4d648f"
+  integrity sha512-BkdixFFUt7r7LsX6aGNPVyYMLjW+M1USLlKPNbZsrZEmLFh5tGqhdfckKo6xgsZIJqdDD0CZGkeCJJwNWQIKQA==
   dependencies:
     "@tokenizer/token" "^0.3.0"
 
@@ -3148,7 +3149,7 @@ toidentifier@1.0.1, toidentifier@~1.0.1:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.1.tgz#3be34321a88a820ed1bd80dfaa33e479fbb8dd35"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
 
-token-types@^6.1.1, token-types@^6.1.2:
+token-types@^6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/token-types/-/token-types-6.1.2.tgz#18d0fd59b996d421f9f83914d6101c201bd08129"
   integrity sha512-dRXchy+C0IgK8WPC6xvCHFRIWYUbqqdEIKPaKo/AcTUNzwLTK6AH7RjdLWsEZcAN/TBdtfUw3PYEgPr5VPr6ww==
@@ -3238,10 +3239,10 @@ uglify-js@^3.1.4:
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.19.3.tgz#82315e9bbc6f2b25888858acd1fff8441035b77f"
   integrity sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==
 
-uint8array-extras@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/uint8array-extras/-/uint8array-extras-1.5.0.tgz#10d2a85213de3ada304fea1c454f635c73839e86"
-  integrity sha512-rvKSBiC5zqCCiDZ9kAOszZcDvdAHwwIKJG33Ykj43OKcWsnmcBRL09YTU4nOeHZ8Y2a7l1MgTd08SBe9A8Qj6A==
+uint8array-extras@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/uint8array-extras/-/uint8array-extras-1.6.0.tgz#ab895526255bddd698e75a02992ee73f1b112ebe"
+  integrity sha512-8iAasVS4wUx0gPLjH8Xtz2PeDzTSiy8QiLGu2DT3X5GU+egFEQhpnbtkehbAwjvDcxIERmCYcysiODFmE3Ud0Q==
 
 undefsafe@^2.0.5:
   version "2.0.5"

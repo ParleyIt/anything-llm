@@ -17,10 +17,19 @@ async function asOfficeMime({
   console.log(`-- Working ${filename} --`);
   let content = "";
   try {
-    // officeparser 7 replaced parseOfficeAsync with parseOffice, which returns
-    // a document AST rather than a string; toText() flattens it back to the
-    // plain text this function has always worked with.
-    content = (await officeParser.parseOffice(fullFilePath)).toText();
+    // parseOffice returns a document AST; to("text") flattens it back to the
+    // plain text this function has always worked with. officeparser 8 added
+    // speaker notes, comments, headers/footers and pipe-drawn tables to that
+    // text by default; these options keep the output as officeparser 7 made it.
+    const ast = await officeParser.parseOffice(fullFilePath, {
+      ignoreNotes: true,
+      ignoreComments: true,
+      ignoreHeadersAndFooters: true,
+    });
+    const { value } = await ast.to("text", {
+      textConfig: { preserveLayout: false },
+    });
+    content = value;
   } catch (error) {
     console.error(`Could not parse office or office-like file`, error);
   }
