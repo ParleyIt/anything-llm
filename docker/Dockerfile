@@ -34,7 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     # npm 11.21.0 still bundles brace-expansion 5.0.9 and undici 6.28.0. Swap in
     # the patched releases until an npm release ships them.
     NPM_MODULES="$(npm root -g)/npm/node_modules" && \
-    for pkg in brace-expansion@5.0.11 undici@6.28.1; do \
+    for pkg in brace-expansion@5.0.11 undici@6.29.1; do \
         tgz="$(npm pack "$pkg" --silent)" && \
         rm -rf "${NPM_MODULES:?}/${pkg%@*}" && mkdir -p "$NPM_MODULES/${pkg%@*}" && \
         tar -xzf "$tgz" --no-same-owner --strip-components=1 -C "$NPM_MODULES/${pkg%@*}" && \
@@ -106,7 +106,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     # npm 11.21.0 still bundles brace-expansion 5.0.9 and undici 6.28.0. Swap in
     # the patched releases until an npm release ships them.
     NPM_MODULES="$(npm root -g)/npm/node_modules" && \
-    for pkg in brace-expansion@5.0.11 undici@6.28.1; do \
+    for pkg in brace-expansion@5.0.11 undici@6.29.1; do \
         tgz="$(npm pack "$pkg" --silent)" && \
         rm -rf "${NPM_MODULES:?}/${pkg%@*}" && mkdir -p "$NPM_MODULES/${pkg%@*}" && \
         tar -xzf "$tgz" --no-same-owner --strip-components=1 -C "$NPM_MODULES/${pkg%@*}" && \
